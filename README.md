@@ -45,8 +45,8 @@ __GroupUserテーブル__
 | group_id   | references | foreign_key: true |
 | member_id  | references | foreign_key: true |
 
-- belongs_to: users
-- belongs_to: groups
+- belongs_to: user
+- belongs_to: group
 
 __Messageテーブル__
 
