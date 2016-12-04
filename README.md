@@ -59,6 +59,7 @@ __Messageテーブル__
 | group_id    | references | foreign_key: true |
 | user_id　　　| references | foreign_key: true |
 | body| strings    | presence: true    |
+| image | strings  |  presence: true |
 
 - belongs_to: user
 - belongs_to: group
