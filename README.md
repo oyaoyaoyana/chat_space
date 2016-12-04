@@ -25,6 +25,7 @@ __Userテーブル__
 
 - has_many: groups, through: :group_user
 - has_many: messages
+- has_many: group_user
 - add_index :user, :nickname
 
 
@@ -47,6 +48,9 @@ __GroupUserテーブル__
 
 - belongs_to: user
 - belongs_to: group
+- add_index, :group_user, :group_id
+- add_index, :group_user, :member_id
+
 
 __Messageテーブル__
 
