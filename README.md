@@ -13,6 +13,61 @@ Things you may want to cover:
 
 * Database creation
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
+### モデル構成
+
+__Userテーブル__
+
+| カラム名    | データ型     | 制約 |
+|:-----------|:------------|:-------------|
+| nickname   | string      | presence:true|
+| email      | string      | uniquences:true|
+| passward   | string      |  length: { minimum: 8, maximum: 20 }  |
+
+- has_many: groups, through: :group_user
+- has_many: messages
+- has_many: group_user
+- add_index :user, :nickname
+
+
+__Groupテーブル__
+
+|  カラム名  |  データ型  |  制約  |
+|:-----------|:----------|:-------|
+| name | strings   | presence: true |
+
+has_mnany: group_users
+has_many: users, through: :group_user
+has_many: messages
+
+__GroupUserテーブル__
+
+|  カラム名  |  データ型  |  制約  |
+|:-----------|:----------|:-------|
+| group_id   | references | foreign_key: true |
+| member_id  | references | foreign_key: true |
+
+- belongs_to: user
+- belongs_to: group
+- add_index, :group_user, :group_id
+- add_index, :group_user, :member_id
+
+
+__Messageテーブル__
+
+|  カラム名   |  データ型  |  制約  |
+|:-----------|:-----------|:-------|
+| group_id    | references | foreign_key: true |
+| user_id　　　| references | foreign_key: true |
+| body| strings    | presence: true    |
+| image | strings  |  presence: true |
+
+- belongs_to: user
+- belongs_to: group
+
 * Database initialization
 
 * How to run the test suite
