@@ -1,28 +1,17 @@
 class ChatGroupsController < ApplicationController
   before_action :set_chat_group, only: [:show, :edit, :update, :destroy]
 
-  # GET /chat_groups
-  # GET /chat_groups.json
   def index
     @chat_groups = ChatGroup.all
   end
 
-  # GET /chat_groups/1
-  # GET /chat_groups/1.json
-  def show
-  end
-
-  # GET /chat_groups/new
   def new
     @chat_group = ChatGroup.new
   end
 
-  # GET /chat_groups/1/edit
   def edit
   end
 
-  # POST /chat_groups
-  # POST /chat_groups.json
   def create
     @chat_group = ChatGroup.new(chat_group_params)
 
@@ -37,8 +26,6 @@ class ChatGroupsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /chat_groups/1
-  # PATCH/PUT /chat_groups/1.json
   def update
     respond_to do |format|
       if @chat_group.update(chat_group_params)
@@ -51,8 +38,6 @@ class ChatGroupsController < ApplicationController
     end
   end
 
-  # DELETE /chat_groups/1
-  # DELETE /chat_groups/1.json
   def destroy
     @chat_group.destroy
     respond_to do |format|
