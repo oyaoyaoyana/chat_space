@@ -1,0 +1,68 @@
+.layout-notification
+  .chat
+    .chat-side
+      .chat-user.clearfix
+        %h5.chat-user__name 小柳
+        .chat-user__actions
+          -# = link_to(content_tag(:i, '新規グル−プ作製', class: 'fa fa-pencil-square-o'),
+          -#   hoge_path, :method => :delete, class: "chat-user__action")
+          -#
+          -# = link_to(content_tag(:i, '新規グル−プ作製', class: 'fa fa-cog'),
+          -#   hoge_path, :method => :delete, class: "chat-user__action")
+
+      %ul.chat-groups
+        %li.chat-group
+          %p.chat-group__link
+            %p.chat-group__name テスト
+            %p.chat-group__mesaage テスト・テスト
+            %p.chat-group__name テスト
+            %p.chat-group__mesaage テスト・テスト
+            %p.chat-group__name テスト
+            %p.chat-group__mesaage テスト・テスト
+
+    .chat-main
+      .chat-header.clearfix
+        .chat-header__left
+          %h2
+          %p.chat-header__users
+            %span.chat-header__user
+            %span.chat-header__user
+        .chat-header__right
+          -# = link_to class: "chat-header__right__button"
+      .chat-body
+        %ul.chat-messages
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name UserTest
+              %p.chat-message__time TimeTest
+            %p.chat-message__body BodyTest
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name UserTest
+              %p.chat-message__time TimeTest
+            %p.chat-message__body BodyTest
+          %li.chat-message
+            .chat-message__header.clearfix
+              %p.chat-message__name UserTest
+              %p.chat-message__time TimeTest
+            %p.chat-message__body BodyTest
+      .chat-footer
+        .chat-footer__form
+        .chat-footer__button
+
+        -# = form_for(@message) do |f|
+        -#   - if @message.errors.any?
+        -#     #error_explanation
+        -#       %h2= "#{pluralize(@message.errors.count, "error")} prohibited this product from being saved:"
+        -#
+        -#       %ul
+        -#         - @message.errors.full_messages.each do |message|
+        -#           %li= message
+
+          .field
+            = f.label :name
+            %br
+            = f.text_field :name
+
+          .actions
+            = f.submit
