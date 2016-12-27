@@ -13,10 +13,7 @@ Things you may want to cover:
 
 * Database creation
 
-<<<<<<< HEAD
 
-=======
->>>>>>> master
 ### モデル構成
 
 __Userテーブル__
