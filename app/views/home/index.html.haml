@@ -1,54 +1,74 @@
 .layout-notification
   .chat
+    //サイドバー
     .chat-side
+      //ログインユーザー
       .chat-user.clearfix
-        %h5.chat-user__name 小柳
+        %h5 Oya
         .chat-user__actions
+          .chat-user__action
+            %i.fa.fa-pencil-square-o
+          .chat-user__action
+            %i.fa.fa-cog
           -# = link_to(content_tag(:i, '新規グル−プ作製', class: 'fa fa-pencil-square-o'),
           -#   hoge_path, :method => :delete, class: "chat-user__action")
           -#
           -# = link_to(content_tag(:i, '新規グル−プ作製', class: 'fa fa-cog'),
           -#   hoge_path, :method => :delete, class: "chat-user__action")
-
+      //グループ一欄
       %ul.chat-groups
         %li.chat-group
-          %p.chat-group__link
+          .chat-group__link
             %p.chat-group__name テスト
-            %p.chat-group__mesaage テスト・テスト
+            %p.chat-group__message テスト・テスト
+        %li.chat-group
+          .chat-group__link
             %p.chat-group__name テスト
-            %p.chat-group__mesaage テスト・テスト
+            %p.chat-group__message テスト・テスト
+        %li.chat-group
+          .chat-group__link
             %p.chat-group__name テスト
-            %p.chat-group__mesaage テスト・テスト
-
+            %p.chat-group__message テスト・テスト
+    //チャット画面
     .chat-main
+      //グループ情報
       .chat-header.clearfix
         .chat-header__left
-          %h2
+          %h2 TestGroup
           %p.chat-header__users
-            %span.chat-header__user
+            %span.chat-header__user Oyanagi Hayato
             %span.chat-header__user
         .chat-header__right
-          -# = link_to class: "chat-header__right__button"
+          %p.chat-header__right__button Edit
+      //チャット本体
       .chat-body
         %ul.chat-messages
+          //個別メッセージ
           %li.chat-message
             .chat-message__header.clearfix
               %p.chat-message__name UserTest
               %p.chat-message__time TimeTest
             %p.chat-message__body BodyTest
+
           %li.chat-message
             .chat-message__header.clearfix
               %p.chat-message__name UserTest
               %p.chat-message__time TimeTest
             %p.chat-message__body BodyTest
+
           %li.chat-message
             .chat-message__header.clearfix
               %p.chat-message__name UserTest
               %p.chat-message__time TimeTest
             %p.chat-message__body BodyTest
+      //投稿欄
       .chat-footer
         .chat-footer__form
-        .chat-footer__button
+          .chat-footer__form__left
+            %p type a message
+          .chat-footer__form__right
+            %i.fa.fa-file-o
+        .chat-footer__button Send
 
         -# = form_for(@message) do |f|
         -#   - if @message.errors.any?

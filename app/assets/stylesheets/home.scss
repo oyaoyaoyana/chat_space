@@ -22,6 +22,16 @@
     letter-spacing: 2px;
     font-size: 16px;
   }
+  &__actions{
+    float: right;
+  }
+  &__action{
+    display: inline-block;
+    margin: 15px 0 15px 3px;
+    list-style: 28px;
+    font-size: 20px;
+    color: #fff;
+  }
 }
 
 .chat-groups{
@@ -143,21 +153,35 @@
   position: fixed;
   width: calc(100% - 380px);
   &__form{
-   height: 50px;
-   width: calc(100% - 115px);
-   float: left;
-   background-color: #fff;
+    height: 50px;
+    width: calc(100% - 115px);
+    float: left;
+    background-color: #fff;
+    &__left{
+      display: inline-block;
+      line-height: 3;
+      margin-left: 10px;
+      color: #aaa;
+    }
+    &__right{
+      float: right;
+      margin-right: 10px;
+      font-size: 20px;
+      display: inline-block;
+      line-height: 2.5;
+      color: #434A54;
+    }
   }
   &__button{
-   float: left;
-   margin-left: 15px;
-   background-color: #38aef0;
-   width: 100px;
-   line-height: 50px;
-   color: #fff;
-   text-align: center;
-   display: inline-block;
-   padding: 0;
+    float: left;
+    margin-left: 15px;
+    background-color: #38aef0;
+    width: 100px;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    display: inline-block;
+    padding: 0;
   }
 }
     //   .chat-user.clearfix
