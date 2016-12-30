@@ -1,5 +1,5 @@
 class AddIndexToUser < ActiveRecord::Migration[5.0]
   def change
-    add_index :user, :nickname
+    add_index :users, :nickname
   end
 end
