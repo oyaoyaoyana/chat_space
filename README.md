@@ -36,7 +36,7 @@ __Groupテーブル__
 |:-----------|:----------|:-------|
 | name | strings   | presence: true |
 
-has_mnany: group_users
+has_many: group_users
 has_many: users, through: :group_user
 has_many: messages
 
