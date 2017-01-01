@@ -9,7 +9,7 @@
           .chat-user__action
             %i.fa.fa-pencil-square-o
           .chat-user__action
-            %i.fa.fa-cog
+            = link_to(content_tag(:i, '', class: ' fa fa-cog'), edit_user_registration_path )
           -# = link_to(content_tag(:i, '新規グル−プ作製', class: 'fa fa-pencil-square-o'),
           -#   hoge_path, :method => :delete, class: "chat-user__action")
           -#
