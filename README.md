@@ -36,7 +36,7 @@ __Groupテーブル__
 |:-----------|:----------|:-------|
 | name | strings   | presence: true |
 
-has_mnany: group_users
+has_many: group_users
 has_many: users, through: :group_user
 has_many: messages
 
@@ -59,9 +59,10 @@ __Messageテーブル__
 |:-----------|:-----------|:-------|
 | group_id    | references | foreign_key: true |
 | user_id　　　| references | foreign_key: true |
-| body| strings    | presence: true    |
-| image | strings  |  presence: true |
+| body| strings    |  |
+| image | strings  |  |
 
+<!-- 2016/12/30 body,imageカラムから,presence: trueを削除 -->
 - belongs_to: user
 - belongs_to: group
 
