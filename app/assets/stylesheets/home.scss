@@ -1,4 +1,16 @@
-.layout-notification
+.alert{
+  height: 30px;
+  list-style: 30px;
+  font-weight: 200;
+  text-align: center;
+  color: #fff;
+  &--success{
+    background-color: #38aef0;
+  }
+  &--danger{
+    background-color: #d65f4c;
+  }
+}
 .chat{
   height: 100%;
   width: 100vw;
