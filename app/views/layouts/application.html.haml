@@ -8,12 +8,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     %link{:href => "//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css", :rel => "stylesheet"}/
   %body
-    - if flash[:notice]
-      .alert.alert--success
-        = flash[:notice]
-
-    - if flash[:alert]
-      .alert.alert--danger
-        = flash[:alert]
-
+    = render 'notification'
     = yield
