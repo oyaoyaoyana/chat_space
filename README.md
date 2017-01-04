@@ -20,7 +20,7 @@ __Userテーブル__
 
 | カラム名    | データ型     | 制約 |
 |:-----------|:------------|:-------------|
-| nickname   | string      | presence:true|
+| name   | string      | , presence: true, length: { maximum: 50 }|
 | email      | string      | uniquences:true|
 | passward   | string      |  length: { minimum: 8, maximum: 20 }  |
 
