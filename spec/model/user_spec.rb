@@ -1,7 +1,7 @@
 require 'rails_helper'
 describe User do
   describe '#create' do
-    context 'valid' do
+    context 'with full attributes' do
       it "is valid with name, email, password and password_confirmation" do
         user = build(:user)
         expect(user).to be_valid
@@ -19,7 +19,7 @@ describe User do
 
     end
 
-    context 'invalid' do
+    context 'lack of attribute' do
       it "is invalid without name" do
         user = build(:user, name: "")
         user.valid?
