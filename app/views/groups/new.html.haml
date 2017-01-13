@@ -20,7 +20,8 @@
       .chat-group-form__field--right
         #chat-group-users
           #chat-group-user-22.chat-group-user.clearfix
-            %p.chat-group-user__name #{current_user.name}
+            .chat-group-user__name
+            = current_user.name
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
