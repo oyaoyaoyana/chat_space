@@ -5,4 +5,5 @@ class Group < ApplicationRecord
 
 
   validates :name, presence: true
+  validates :user_ids, presence: true
 end
