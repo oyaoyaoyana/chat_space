@@ -3,7 +3,6 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @group.group_users.build
   end
 
   def create
