@@ -13,7 +13,8 @@ gem 'jquery-rails'                      # Use jquery as the JavaScript library
 gem 'jbuilder', '~> 2.5'                # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rake', '< 11.0'
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data ge
 
 # Front side
 gem 'erb2haml'
@@ -30,6 +31,8 @@ group :development, :test do
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'faker'
   gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development do
