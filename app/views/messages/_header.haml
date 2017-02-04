@@ -1,0 +1,12 @@
+.chat-header.clearfix
+  .chat-header__left
+    %h2= @group.name
+    %p.chat-header__users
+      Members:
+      - @group.group_users.each do |group_user|
+        %span.chat-header__user
+          = group_user.user.name
+          ,
+  .chat-header__right
+    -# %p.chat-header__right__button Edit
+    = link_to "Edit", edit_group_path(@group), class: "chat-header__right__button"
