@@ -9,11 +9,11 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(group_params)
-    if group.save
+    @group = Group.new(group_params)
+    if @group.save
       redirect_to :root, notice: 'グループが作成されました'
     else
-      redirect_to new_group_path, alert: 'グループが作成されませんでした'
+      render action: :new, alert: 'グループが作成されませんでした'
     end
   end
 
@@ -21,27 +21,20 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = Group.find(params[:id])
-    if group.update(group_params)
-      redirect_to group_messages_path(group), notice: 'グループが更新されました'
+    @group = Group.find(params[:id])
+    if @group.update(group_params)
+      redirect_to group_messages_path(@group), notice: 'グループが更新されました'
     else
-      redirect_to edit_group_path, alert: 'グループが更新されませんでした'
+      render :action => 'edit', alert: 'グループが更新されませんでした'
     end
   end
 
   private
 
   def group_params
-    # paramsにuser_idが含まれているか？
-    if params_user.include?("#{current_user.id}")
-      #paramsを制限
-      strong_params
-    else
-      #paramsにcurrent_user.idを追加
-      params_user << current_user.id
-      #paramsを制限
-      strong_params
-    end
+
+    params_user << current_user.id unless params_user.include?("#{current_user.id}")
+    strong_params
   end
 
   #paramsのuser_id部分
