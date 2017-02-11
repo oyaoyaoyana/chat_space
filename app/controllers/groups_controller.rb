@@ -1,16 +1,21 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: :edit
 
+  def index
+  end
+
   def new
     @group = Group.new
   end
 
   def create
-    @group = Group.new(group_params)
+    params[:group][:user_ids] << "#{current_user.id}"
+    @group = Group.new(strong_params)
     if @group.save
       redirect_to :root, notice: 'グループが作成されました'
     else
-      redirect_to new_group_path, alert: 'グループが作成されませんでした'
+      flash.now[:alert] = 'グループが作成されませんでした'
+      render action: :new
     end
   end
 
@@ -18,18 +23,19 @@ class GroupsController < ApplicationController
   end
 
   def update
-    group = Group.find(params[:id])
-    if group.update(group_params)
-      redirect_to :root, notice: 'グループが更新されました'
+    @group = Group.find(params[:id])
+    if @group.update(strong_params)
+      redirect_to group_messages_path(@group), notice: 'グループが更新されました'
     else
-      redirect_to edit_group_path, alert: 'グループが更新されませんでした'
+      flash.now[:alert] = 'グループが更新されませんでした'
+      render action: 'edit'
     end
   end
 
   private
-  
-  def group_params
-    params.require(:group).permit(:name)
+
+  def strong_params
+    params.require(:group).permit(:name, { user_ids: [] })
   end
 
   def set_group

@@ -69,6 +69,9 @@ input,textarea,select {
   font-size:inherit;
   font-weight:inherit;
 }
+a {
+  text-decoration: none;
+}
 /*to enable resizing for IE*/
 input,textarea,select {
   *font-size:100%;

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :groups, only: [:new, :create, :edit, :update]
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root "home#index"
+  resources :groups, except: %i( delete ) do
+    resources :messages, only: %i( index create destroy )
+  end
+  root "groups#index"
 end
