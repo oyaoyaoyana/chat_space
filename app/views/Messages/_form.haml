@@ -1,7 +1,7 @@
 .chat-footer.clearfix
-  .chat-footer__form
-    .chat-footer__form__left
-      %p type a message
-    .chat-footer__form__right
-      %i.fa.fa-file-o
-  .chat-footer__button Send
+  = form_for([@group, @message]) do |f|
+    .chat-footer__form
+      = f.text_field :body, class:  "chat-footer__form__left", placeholder: "入力してください"
+      %i.fa.fa-file-o.chat-footer__form__right
+    = f.file_field :image, class: "chat-footer__form__right",style: "display:none;"
+    = submit_tag "Send", class: "chat-footer__button"
