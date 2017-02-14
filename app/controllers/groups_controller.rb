@@ -10,7 +10,7 @@ class GroupsController < ApplicationController
 
   def create
     params[:group][:user_ids] << "#{current_user.id}"
-    @group = Group.new(strong_params)
+    @group = Group.new(group_params)
     if @group.save
       redirect_to :root, notice: 'グループが作成されました'
     else
@@ -24,7 +24,7 @@ class GroupsController < ApplicationController
 
   def update
     @group = Group.find(params[:id])
-    if @group.update(strong_params)
+    if @group.update(group_params)
       redirect_to group_messages_path(@group), notice: 'グループが更新されました'
     else
       flash.now[:alert] = 'グループが更新されませんでした'
@@ -34,7 +34,7 @@ class GroupsController < ApplicationController
 
   private
 
-  def strong_params
+  def group_params
     params.require(:group).permit(:name, { user_ids: [] })
   end
 
