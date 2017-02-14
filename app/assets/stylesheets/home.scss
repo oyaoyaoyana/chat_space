@@ -162,10 +162,8 @@
     float: left;
     background-color: #fff;
     &__left{
-      display: inline-block;
-      line-height: 3;
-      margin-left: 10px;
-      color: #aaa;
+    width: 100%;
+    height: 50px;
     }
     &__right{
       float: right;
