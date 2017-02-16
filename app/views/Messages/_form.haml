@@ -2,6 +2,9 @@
   = form_for([@group, @message]) do |f|
     .chat-footer__form
       = f.text_field :body, class:  "chat-footer__form__left", placeholder: "入力してください"
-      %i.fa.fa-file-o.chat-footer__form__right
+      .chat-footer__form__right
+        = f.label :image, for: "file-input" do
+          %i.fa.fa-file-o
+        = f.file_field :image, id: "file-input",style: "display:none;"
     = f.file_field :image, class: "chat-footer__form__right",style: "display:none;"
     = submit_tag "Send", class: "chat-footer__button"
