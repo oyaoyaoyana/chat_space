@@ -2,6 +2,8 @@
   //グループ情報
   = render 'header'
   //チャット本体
-  = render 'body'
+  .chat-body
+    %ul.chat-messages
+      = render partial: 'body', collection: @messages, as: "message"
   //投稿欄
   = render 'form'

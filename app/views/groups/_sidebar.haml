@@ -14,10 +14,11 @@
       -# = link_to(content_tag(:i, '新規グル−プ作製', class: 'fa fa-cog'),
       -#   hoge_path, :method => :delete, class: "chat-user__action")
   //グループ一欄
-  %ul.chat-groups
-    - current_user.groups.each do |group|
-      %li.chat-group
-        = link_to(group_messages_path(group), class: 'chat-group__link') do
-          %p.chat-group__name
-            = group.name
-          %p.chat-group__message テスト・テスト
+  .chat-groups
+    %ul.chat-groups
+      - current_user.groups.each do |group|
+        %li.chat-group
+          = link_to(group_messages_path(group), class: 'chat-group__link') do
+            %p.chat-group__name
+              = group.name
+            %p.chat-group__message テスト・テスト
