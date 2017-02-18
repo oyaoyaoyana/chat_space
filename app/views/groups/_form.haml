@@ -11,7 +11,7 @@
       .chat-group-form__search.clearfix
       = collection_check_boxes(:group, :user_ids, User.all, :id, :name) do |b|
         = b.label {b.check_box + b.text}
-    　　#user-search-result
+      #user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
       %label.chat-group-form__label{:for => "group_チャットメンバー"} チャットメンバー
