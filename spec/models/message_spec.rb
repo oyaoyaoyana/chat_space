@@ -28,4 +28,19 @@ describe Message do
       end
     end
   end
+  describe "show_time method" do
+    context "nomal case " do
+      it "is not null" do
+        message = create(:message)
+        message_time = message.show_time
+        expect(message_time).not_to be_nil
+      end
+      it "is same as message.created_at.strftime" do
+        message = create(:message)
+        message_a = message.show_time
+        message_b = message.created_at.strftime("%D %T")
+        expect(message_a).to eq message_b
+      end
+    end
+  end
 end
