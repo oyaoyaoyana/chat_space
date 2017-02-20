@@ -27,12 +27,13 @@ gem 'devise-i18n'
 
 group :development, :test do
   gem 'byebug', platform: :mri          # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'rspec-rails', "~> 3.1.0"
+  gem 'rspec-rails', '~> 3.5.0.beta'
   gem 'factory_girl_rails', "~> 4.4.1"
   gem 'faker'
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem "rails-controller-testing"
 end
 
 group :development do
