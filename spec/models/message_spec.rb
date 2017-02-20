@@ -35,11 +35,10 @@ describe Message do
         message_time = message.show_time
         expect(message_time).not_to be_nil
       end
-      it "is same as message.created_at.strftime" do
-        message = create(:message)
-        message_a = message.show_time
-        message_b = message.created_at.strftime("%D %T")
-        expect(message_a).to eq message_b
+      it "is same as expectation" do
+        message = create(:message, created_at: "Mon, 20 Feb 2017 13:16:10 JST +09:00")
+        message_time = message.show_time
+        expect(message_time).to eq ("02/20/17 13:16:10")
       end
     end
   end
