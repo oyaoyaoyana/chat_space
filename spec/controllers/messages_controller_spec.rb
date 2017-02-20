@@ -76,14 +76,14 @@ RSpec.describe MessagesController, :type => :controller do
     let(:user) { create(:user, email: "test@gmail.com")}
     let(:group) { create(:group, user_ids: user.id)}
 
-    describe "when access to #index" do
+    describe "GET #index" do
       it "is redirect to new_user_session_path" do
         get :index, params: { group_id: group }
         expect(response).to redirect_to new_user_session_path
       end
     end
 
-    describe "when access to #create" do
+    describe "POST #create" do
       it "is redirect to new_user_session_path" do
         post :create,  params: { group_id: group , message: attributes_for(:message)}
         expect(response).to redirect_to new_user_session_path
