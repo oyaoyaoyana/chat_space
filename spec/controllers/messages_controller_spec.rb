@@ -29,39 +29,43 @@ RSpec.describe MessagesController, :type => :controller do
 
     describe "POST #create " do
       context "when it is valid" do
-        before do
-          post :create,  params: { group_id: group , message: attributes_for(:message)}
-        end
+        subject {
+          Proc.new { post :create,  params: { group_id: group , message: attributes_for(:message)} }
+        }
         it "saves the new message in the database" do
           expect{
-            post :create,  params: { group_id: group , message: attributes_for(:message)}
+            subject.call
           }.to change(Message, :count).by(1)
         end
 
         it "redirects to articles#index" do
+          subject.call
           expect(response).to redirect_to group_messages_path
         end
 
         it "has flash message notice" do
+          subject.call
           expect(flash[:notice]).not_to be_empty
         end
       end
 
       context "when it is invalid" do
-        before do
-          post :create,  params: { group_id: group , message: attributes_for(:message, body: "")}
-        end
+        subject {
+          Proc.new { post :create,  params: { group_id: group , message: attributes_for(:message, body: "")} }
+        }
         it "doesn't save the new message in the database" do
           expect{
-            post :create,  params: { group_id: group , message: attributes_for(:message, body: "")}
+            subject.call
           }.not_to change(Message, :count)
         end
 
         it "render index" do
+          subject.call
           expect(response).to render_template :index
         end
 
         it "has flash message alert" do
+          subject.call
           expect(flash[:alert]).not_to be_empty
         end
       end
