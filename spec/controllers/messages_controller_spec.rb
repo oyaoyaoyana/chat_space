@@ -22,8 +22,14 @@ RSpec.describe MessagesController, :type => :controller do
         expect(assigns(:message)).to be_a_new(Message)
       end
 
-      it "renders the :index template" do
+      it "render to :index template" do
         expect(response).to render_template :index
+        binding.pry
+      end
+      it "after #create" do
+        post :create,  params: { group_id: group , message: attributes_for(:message)}
+        expect(response).to redirect_to "/groups/#{assigns(:group).id}/messages"
+        binding.pry
       end
     end
 
@@ -38,14 +44,14 @@ RSpec.describe MessagesController, :type => :controller do
           }.to change(Message, :count).by(1)
         end
 
-        it "redirects to articles#index" do
+        it "redirects to message#index" do
           subject.call
           expect(response).to redirect_to group_messages_path
         end
 
         it "has flash message notice" do
           subject.call
-          expect(flash[:notice]).not_to be_empty
+          expect(flash[:notice]).to eq("チャットグループが更新されました")
         end
       end
 
@@ -66,7 +72,7 @@ RSpec.describe MessagesController, :type => :controller do
 
         it "has flash message alert" do
           subject.call
-          expect(flash[:alert]).not_to be_empty
+          expect(flash[:alert]).to eq("メッセージが作製されませんでした")
         end
       end
     end
