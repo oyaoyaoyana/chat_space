@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20170101084224) do
     t.integer  "user_id"
     t.string   "body"
     t.string   "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["group_id"], name: "index_messages_on_group_id", using: :btree
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end

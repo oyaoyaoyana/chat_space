@@ -4,7 +4,7 @@
       = f.text_field :body, class:  "chat-footer__form__left", placeholder: "入力してください"
       .chat-footer__form__right
         = f.label :image, for: "file-input" do
-          %i.fa.fa-file-o
+          %i.fa.fa-picture-o
         = f.file_field :image, id: "file-input",style: "display:none;"
     = f.file_field :image, class: "chat-footer__form__right",style: "display:none;"
     = submit_tag "Send", class: "chat-footer__button"
