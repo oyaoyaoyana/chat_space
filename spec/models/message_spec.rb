@@ -38,7 +38,7 @@ describe Message do
       it "is same as expectation" do
         message = create(:message, created_at: "Mon, 20 Feb 2017 13:16:10 JST +09:00")
         message_time = message.show_time
-        expect(message_time).to eq ("02/20/17 13:16:10")
+        expect(message_time).to eq ("02/20/17 04:16:10")
       end
     end
   end
