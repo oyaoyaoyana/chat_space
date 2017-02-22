@@ -24,12 +24,11 @@ RSpec.describe MessagesController, :type => :controller do
 
       it "render to :index template" do
         expect(response).to render_template :index
-        binding.pry
       end
+
       it "after #create" do
         post :create,  params: { group_id: group , message: attributes_for(:message)}
         expect(response).to redirect_to "/groups/#{assigns(:group).id}/messages"
-        binding.pry
       end
     end
 
