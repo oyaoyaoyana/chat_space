@@ -3,17 +3,15 @@ $(function(){
     var html = $('<li class="chat-message">').append(todo.body);
     return html ;
   };
-  $('.js-form').on('submit', function(e){
+  $('#js-form').on('submit', function(e){
     e.preventDefault();
     var $form = $(this);
-    var $textField = $('.js-form__text-field');
-    var $button = $('.chat-footer__button');
+    var $textField = $('#js-form__text-field');
+    var $button = $('#message-btn');
+
     $.ajax({
-      beforeSend: function(){
-        $button.attr("disabled","true");
-      },
       url: $form.attr('action'),
-      type: $form.attr('method'),
+      type: 'POST',
       data: $form.serialize(),
       timeout: 1000
     })
@@ -24,9 +22,6 @@ $(function(){
     })
     .fail(function(){
       alert("error");
-    })
-    .always(function(){
-      $button.removeAttr('disabled');
     });
     return false
   });
