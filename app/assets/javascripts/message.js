@@ -8,7 +8,6 @@ $(function(){
     var $form = $(this);
     var $textField = $('#js-form__text-field');
     var $button = $('#message-btn');
-
     $.ajax({
       url: $form.attr('action'),
       type: 'POST',
@@ -16,8 +15,7 @@ $(function(){
       timeout: 1000
     })
     .done(function(data){
-      var html = buildHTML(data);
-      $('.chat-messages').append(html);
+      buildHTML(data);
       $textField.val('');
     })
     .fail(function(){
