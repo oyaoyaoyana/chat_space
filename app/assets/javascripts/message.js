@@ -1,19 +1,20 @@
-function buildHTML(message){
-  var html =
-    `<li class="chat-message">` +
-      `<div class="chat-message__header clearfix">` +
-        `<p class="chat-message__name">`+
-          message.name +
-        `</p>`+
-        `<p class="chat-message__time">`+
-          message.time +
-        `</p>` +
-        `<br>` +
-        `<p class="chat-message__body">` +
-           message.body +
-        `</p>` +
-      `</div>` +
-    `</li>`;
+function buildMessage(message){
+  var html = $(`
+    <li class="chat-message">
+      <div class="chat-message__header clearfix">
+        <p class="chat-message__name">
+          ${message.name}
+        </p>
+        <p class="chat-message__time">
+          ${message.time}
+        </p>
+        <br>
+        <p class="chat-message__body">
+           ${message.body}
+        </p>
+      </div>
+    </li>
+    `);
     return html
 };
 
@@ -35,8 +36,8 @@ $(function(){
       timeout: 1000
     })
     .done(function(data){
-      html = buildHTML(data);
-      $('.chat-messages').append(html)
+      message = buildMessage(data);
+      $('.chat-messages').append(message)
       $textField.val('');
     })
     .fail(function(){
