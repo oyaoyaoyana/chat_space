@@ -1,26 +1,46 @@
+function buildHTML(message){
+  var html =
+    '<li class="chat-message">' +
+      '<div class="chat-message__header clearfix">' +
+        '<p class="chat-message__name">'+
+          message.name +
+        '</p>'+
+        '<p class="chat-message__time">'+
+          message.time +
+        '</p>' +
+        '<br>' +
+        '<p class="chat-message__body">' +
+           message.body +
+        '</p>' +
+      '</div>' +
+    '</li>';
+    return html
+};
 $(function(){
-  function buildHTML(todo){
-    var html = $('<li class="chat-message">').append(todo.body);
-    return html ;
-  };
-  $('#js-form').on('submit', function(e){
+  $('#js-message-form').on('submit', function(e){
     e.preventDefault();
-    var $form = $(this);
+    var group_id = $('#group-id').val();
     var $textField = $('#js-form__text-field');
-    var $button = $('#message-btn');
+    var message = $textField.val();
     $.ajax({
-      url: $form.attr('action'),
+      url: "/groups/" + group_id + "/messages",
       type: 'POST',
-      data: $form.serialize(),
+      data: {
+        message: {
+          body: message
+        }
+      },
+      dataType: 'json',
       timeout: 1000
     })
     .done(function(data){
-      buildHTML(data);
+      html = buildHTML(data);
+      $('.chat-messages').append(html)
       $textField.val('');
     })
     .fail(function(){
       alert("error");
     });
-    return false
+    return false;
   });
 });

@@ -9,7 +9,7 @@ def create
   @message = Message.new(message_params)
   if @message.save
     respond_to do |format|
-      format.html { redirect_to group_messages_path, notice: 'チャットグループが更新されました' }
+      format.html { redirect_to group_messages_path, notice: 'チャットグループが更新されました'}
       format.json
     end
   else
@@ -29,6 +29,6 @@ end
   end
 
   def set_messages
-    @messages = Message.where(group_id: @group).order('created_at DESC')
+    @messages = Message.where(group_id: @group).order('created_at ASC')
   end
 end
