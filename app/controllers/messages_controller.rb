@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message = Message.new
   end
 
-def create
+  def create
   @message = Message.new(message_params)
   if @message.save
     respond_to do |format|
@@ -16,7 +16,6 @@ def create
     flash.now[:alert] = 'メッセージが作製されませんでした'
     render 'index'
   end
-
 end
 
   private
