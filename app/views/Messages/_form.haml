@@ -1,5 +1,5 @@
 .chat-footer.clearfix
-  = form_for([@group, @message], html: {id: 'js-message-form', class: "hogehoge"} )do |f|
+  = form_for([@group, @message], html: {id: 'js-message-form' )do |f|
     .chat-footer__form
       = f.text_field :body, class:  "chat-footer__form__left", id: "js-form__text-field", placeholder: "入力してください"
       .chat-footer__form__right
