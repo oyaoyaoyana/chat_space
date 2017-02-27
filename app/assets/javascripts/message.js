@@ -21,11 +21,10 @@ function buildMessage(message){
 $(function(){
   $('#js-message-form').on('submit', function(e){
     e.preventDefault();
-    var group_id = $('#group-id').val();
     var $textField = $('#js-form__text-field');
     var message = $textField.val();
     $.ajax({
-      url: "/groups/" + group_id + "/messages",
+      url: $(this).attr('action'),
       type: 'POST',
       data: {
         message: {
