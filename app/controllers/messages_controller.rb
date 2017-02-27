@@ -6,17 +6,17 @@ class MessagesController < ApplicationController
   end
 
   def create
-  @message = Message.new(message_params)
-  if @message.save
-    respond_to do |format|
-      format.html { redirect_to group_messages_path, notice: 'チャットグループが更新されました'}
-      format.json
+    @message = Message.new(message_params)
+    if @message.save
+      respond_to do |format|
+        format.html { redirect_to group_messages_path, notice: 'チャットグループが更新されました'}
+        format.json
+      end
+    else
+      flash.now[:alert] = 'メッセージが作製されませんでした'
+      render 'index'
     end
-  else
-    flash.now[:alert] = 'メッセージが作製されませんでした'
-    render 'index'
-  end
-end
+　end
 
   private
   def message_params
