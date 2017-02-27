@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
       flash.now[:alert] = 'メッセージが作製されませんでした'
       render 'index'
     end
-　end
+  end
 
   private
   def message_params
