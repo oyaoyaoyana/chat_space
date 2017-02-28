@@ -1,10 +1,10 @@
 .chat-footer.clearfix
-  = form_for([@group, @message]) do |f|
+  = form_for([@group, @message], html: {id: 'js-message-form' })do |f|
     .chat-footer__form
-      = f.text_field :body, class:  "chat-footer__form__left", placeholder: "入力してください"
+      = f.text_field :body, class:  "chat-footer__form__left", id: "js-form__text-field", placeholder: "入力してください"
       .chat-footer__form__right
         = f.label :image, for: "file-input" do
           %i.fa.fa-picture-o
         = f.file_field :image, id: "file-input",style: "display:none;"
     = f.file_field :image, class: "chat-footer__form__right",style: "display:none;"
-    = submit_tag "Send", class: "chat-footer__button"
+    = f.submit "Send", class: "chat-footer__button", id: "message-btn"

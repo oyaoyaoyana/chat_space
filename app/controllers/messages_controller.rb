@@ -8,12 +8,16 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      redirect_to group_messages_path, notice: 'チャットグループが更新されました'
+      respond_to do |format|
+        format.html { redirect_to group_messages_path, notice: 'チャットグループが更新されました'}
+        format.json
+      end
     else
       flash.now[:alert] = 'メッセージが作製されませんでした'
       render 'index'
     end
   end
+
   private
   def message_params
     params.require(:message).permit(:body).merge(user_id: current_user.id, group_id: params[:group_id])
@@ -24,6 +28,6 @@ class MessagesController < ApplicationController
   end
 
   def set_messages
-    @messages = Message.where(group_id: @group).order('created_at DESC')
+    @messages = Message.where(group_id: @group).order('created_at ASC')
   end
 end
