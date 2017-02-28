@@ -22,17 +22,18 @@ $(function(){
   $('#js-message-form').on('submit', function(e){
     e.preventDefault();
     var $textField = $('#js-form__text-field');
-    var message = $textField.val();
+    var message    = $textField.val();
+    var action     = $(this).attr('action')
     $.ajax({
-      url: $(this).attr('action'),
-      type: 'POST',
-      data: {
-        message: {
-          body: message
-        }
-      },
+           url: action,
+          type: 'POST',
+          data: {
+            message: {
+              body: message
+            }
+          },
       dataType: 'json',
-      timeout: 1000
+       timeout: 1000
     })
     .done(function(data){
       message = buildMessage(data);
