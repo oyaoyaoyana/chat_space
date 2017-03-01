@@ -41,7 +41,6 @@ $(function(){
     input = $.trim($(this).val());
     if(preInput !== input){
       clearTimeout(preFunc);
-      console.log(input)
       preFunc = setTimeout(ajaxSearch, 500);
     }
     preInput = input;
