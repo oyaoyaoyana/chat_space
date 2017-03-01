@@ -25,19 +25,23 @@ $(function(){
       timeout: 1000
     })
     .done(function(data){
+      // ユーザーリストの削除
+      $('#user_list_ul').children().remove();
+      // ユーザーリストの作成
       $.each(data, function(){
         user = biuildUsers(this)
-        $('#user_list_ul').append(user)
+        $('#user_list_ul').append(user);
       });
     })
     .fail(function(data){
-      alert('please reload');
+      alert('please reload page');
     });
   };
   $('#user-text-field').on('keyup', function() {
     input = $.trim($(this).val());
     if(preInput !== input){
       clearTimeout(preFunc);
+      console.log(input)
       preFunc = setTimeout(ajaxSearch, 500);
     }
     preInput = input;
