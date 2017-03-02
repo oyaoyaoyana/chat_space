@@ -33,7 +33,7 @@ class GroupsController < ApplicationController
   end
 
   def search
-    @users = User.where('name LIKE(?)', "%#{search_params[:keyword]}%")
+    @users = User.where('name LIKE(?)', "%#{search_params[:name]}%")
     respond_to do |format|
       format.html
       format.json
@@ -51,7 +51,7 @@ class GroupsController < ApplicationController
   end
 
   def search_params
-    params.permit(:keyword)
+    params.permit(:name)
   end
 
 end

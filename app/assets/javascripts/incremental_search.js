@@ -20,7 +20,7 @@ $(function(){
     $.ajax({
       url: "search",
       type: "GET",
-      data: ("keyword=" + input),
+      data: ("name=" + input),
       dataType: 'json',
       timeout: 1000
     })
@@ -41,7 +41,6 @@ $(function(){
     input = $.trim($(this).val());
     if(preInput !== input){
       clearTimeout(preFunc);
-      console.log(input)
       preFunc = setTimeout(ajaxSearch, 500);
     }
     preInput = input;
