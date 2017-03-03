@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
 
   validates :name, presence: true
+  scope :search_by, -> (name) { where('name LIKE(?)', "%#{name}%") }
 end
