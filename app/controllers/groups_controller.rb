@@ -14,7 +14,6 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to :root, notice: 'グループが作成されました'
     else
-      flash.now[:alert] = 'グループが作成されませんでした'
       render action: :new
     end
   end
@@ -33,7 +32,7 @@ class GroupsController < ApplicationController
   end
 
   def search
-    @users = User.where('name LIKE(?)', "%#{search_params[:name]}%")
+    @users = User.search_by(search_params[:name])
     respond_to do |format|
       format.html
       format.json
