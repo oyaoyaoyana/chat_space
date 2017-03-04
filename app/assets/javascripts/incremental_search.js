@@ -68,20 +68,10 @@ $(function(){
     }
     preInput = input;
   });
+});
 
-  //ユーザーの追加機能
-  $( document ).on( 'click', '.user_result_list--link', function(e) {
-    e.preventDefault();
-    var user_id = $(this).data('user-id');
-    var user_name = $(this).data('user-name');
-    //ユーザーのリスト削除
-    $(`.list-${user_id}`).remove();
-    user = addUserValue(user_name, user_id);
-    // ユーザーの値の追加
-    $('#user_add_list_ul').append(user);
-  });
-
-  //ユーザーの削除機能
+//ユーザーの削除機能
+$(function(){
   $( document ).on( 'click', '.user_add_list--link', function(e) {
     e.preventDefault();
     var user_id = $(this).data('user-id');
@@ -91,5 +81,18 @@ $(function(){
     user = addUserList(user_name, user_id);
     //ユーザーのリスト追加
     $('#user_list_ul').append(user);
+  });
+});
+//ユーザーの追加機能
+$(function(){
+  $( document ).on( 'click', '.user_result_list--link', function(e) {
+    e.preventDefault();
+    var user_id = $(this).data('user-id');
+    var user_name = $(this).data('user-name');
+    //ユーザーのリスト削除
+    $(`.list-${user_id}`).remove();
+    user = addUserValue(user_name, user_id);
+    // ユーザーの値の追加
+    $('#user_add_list_ul').append(user);
   });
 });
