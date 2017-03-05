@@ -34,11 +34,11 @@ function removeUserValue(name, id){
     return html
 };
 
-function awesomeUser(e,hoge){
+function awesomeUser(e, user_info){
   e.preventDefault();
-  var user_id = hoge.data('user-id');
-  var user_name = hoge.data('user-name');
-  var $good_class = hoge.attr("class")
+  var user_id = user_info.data('user-id');
+  var user_name = user_info.data('user-name');
+  var $good_class = user_info.attr("class")
   if ($good_class == "user_add_list--link"){
       $(`.add-${user_id}`).remove();
       user = addUserValue(user_name, user_id);
@@ -54,35 +54,34 @@ $(function(){
   var preFunc = null
   var preInput = ''
   var input = ''
-  var ajaxSearch = function() {
-    $.ajax({
-      url: "search",
-      type: "GET",
-      data: ("name=" + input),
-      dataType: 'json',
-      timeout: 1000
-    })
-    .done(function(data){
-      // ユーザーリストの削除
-      $('#user_add_ul').children().remove();
-      // ユーザーリストの作成
-      $.each(data, function(){
-        user = biuildUsers(this)
-        $('#user_add_ul').append(user);
-      });
-    })
-    .fail(function(data){
-      alert('please reload page');
-    });
-    return false
-  };
+
+  //インクリメンタルサーチ開始
   $('#user-text-field').on('keyup', function() {
     input = $.trim($(this).val());
     if(preInput !== input){
       clearTimeout(preFunc);
-      preFunc = setTimeout(ajaxSearch, 500);
-    }
+      preFunc = setTimeout(function(){
+        $.ajax({
+          url: "search",
+          type: "GET",
+          data: ("name=" + input),
+          dataType: 'json',
+          timeout: 1000
+        })
+        .done(function(data){
+          $('#user_add_ul').children().remove();
+          $.each(data, function(){
+            user = biuildUsers(this)
+            $('#user_add_ul').append(user);
+          });
+        })
+        .fail(function(data){
+          alert('please reload page');
+        });
+        return false
+    }, 500);
     preInput = input;
+    }
   });
   //ユーザーの削除機能
   $( document ).on( 'click', '.user_remove_list--link', function(e) {
