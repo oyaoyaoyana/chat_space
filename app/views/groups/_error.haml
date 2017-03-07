@@ -1,0 +1,6 @@
+- if @group.errors.any?
+  #error_explanation
+    %h2.error_header= "#{@group.errors.count}件のエラーがあります。"
+    %ul.error_ul
+      - @group.errors.full_messages.each do |msg|
+        %li.error_li= msg

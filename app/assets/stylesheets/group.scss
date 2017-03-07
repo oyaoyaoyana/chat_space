@@ -11,6 +11,7 @@
     letter-spacing: 2px;
     font-size: 24px;
     text-align: center;
+    color: #434a54;
   }
 
   &__errors {
@@ -39,6 +40,7 @@
     }
   }
   &__field {
+    color: #434a54;
     margin-top: 30px;
     &--left {
       float: left;
@@ -46,8 +48,10 @@
       padding-right: 20px;
       padding-left: 20px;
       box-sizing: border-box;
+      text-align: right;
+      line-height: 54px;
+      font-weight: bold;
     }
-
     &--right {
       float: right;
       width: 70%;
@@ -59,48 +63,43 @@
       font-weight: bold;
       text-align: right;
     }
-
-    .chat-group-form__input {
-      float: left;
-      width: 100%;
-      line-height: 30px;
-      padding: 10px 15px;
-      box-sizing: border-box;
-    }
   }
+}
 
-  .chat-group-user {
-    padding: 0 15px;
-    line-height: 50px;
-    font-size: 14px;
-    border-bottom: 1px solid #ddd;
+.chat-group-form__input {
+  float: left;
+  width: 100%;
+  line-height: 30px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+}
 
-    .chat-group-user__name {
-      float: left;
-    }
 
-    .chat-group-user__btn {
-      float: right;
-      display: inline-block;
-      cursor: pointer;
-
-      &.chat-group-user__btn--add {
-        color: #38aef0;
-      }
-
-      &.chat-group-user__btn--remove {
-        color: #f05050;
-      }
-    }
+.chat-group-user {
+  padding: 0 15px;
+  line-height: 50px;
+  font-size: 14px;
+  border-bottom: 1px solid #ddd;
+  color: #434a54;
+}
+.chat-group-user__btn {
+  float: right;
+  display: inline-block;
+  cursor: pointer;
+  &.chat-group-user__btn--add {
+    color: #38aef0;
   }
-
-  .chat-group-form__action-btn {
-    display: inline-block;
-    padding: 12px 20px;
-    color: #fff;
-    background-color: #38aef0;
-    border: 0;
+  &.chat-group-user__btn--remove {
+    color: #f05050;
   }
+}
+
+.chat-group-form__action-btn {
+  display: inline-block;
+  padding: 12px 20px;
+  color: #fff;
+  background-color: #38aef0;
+  border: 0;
 }
 
 .chat-group__link{
@@ -113,4 +112,39 @@
 
 html{
  height: 100%;
+}
+
+.user_add_list{
+  line-height: 30px;
+  padding: 15px 10px;
+  border-bottom: solid 1px #dddddd;
+  a{
+    color: #38aef0;
+  }
+  &--right{
+    float: right;
+     :link { color: inherit; }
+　　　:visited { color: inherit; }
+    }
+}
+
+.user_remove_list{
+  line-height: 30px;
+  padding: 15px 10px;
+  border-bottom: solid 1px #dddddd;
+  a{
+    color: red;
+  }
+  &--right{
+    float: right;
+     :link { color: inherit; }
+　　　:visited { color: inherit; }
+    }
+}
+#error_explanation{
+  text-align: center;
+  list-style: none;
+  ul{
+    list-style: none;
+  }
 }

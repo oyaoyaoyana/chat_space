@@ -14,7 +14,6 @@ class GroupsController < ApplicationController
     if @group.save
       redirect_to :root, notice: 'グループが作成されました'
     else
-      flash.now[:alert] = 'グループが作成されませんでした'
       render action: :new
     end
   end
@@ -32,6 +31,14 @@ class GroupsController < ApplicationController
     end
   end
 
+  def search
+    @users = User.search_by(search_params[:name])
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
 
   def group_params
@@ -40,6 +47,10 @@ class GroupsController < ApplicationController
 
   def set_group
     @group = Group.find(params[:id])
+  end
+
+  def search_params
+    params.permit(:name)
   end
 
 end
