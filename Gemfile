@@ -23,7 +23,8 @@ gem 'haml-rails'
 # User session
 gem 'devise'
 gem 'devise-i18n'
-
+gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug', platform: :mri          # Call 'byebug' anywhere in the code to stop execution and get a debugger console
