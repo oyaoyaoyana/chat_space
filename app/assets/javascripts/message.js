@@ -80,7 +80,6 @@ $(function(){
     scrollBottom();
     setInterval( function() {
       var last_message_id = $('.chat-messages li:last-child').data('id');
-      console.log(last_message_id)
       $.ajax({
         url: '',
         type: 'GET',
@@ -91,13 +90,13 @@ $(function(){
         timeout: 1000
       })
       .done(function(data){
-        console.log(data);
         $.each(data, function(){
         message = buildMessage(this)
         $('.chat-messages').append(message)
         })
        })
-      .fail(function(jqXHR, textStatus, errorThrown) {
+      .fail(function() {
+        alert("please reload!")
       })
     }, 10000 );
   };
