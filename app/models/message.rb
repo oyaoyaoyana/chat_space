@@ -3,9 +3,7 @@ class Message < ApplicationRecord
   belongs_to :user
   validates :body_or_image, presence: true
 
-   mount_uploader :image, ImageUploader
-
-
+  mount_uploader :image, ImageUploader
 
   def show_time
     self.created_at.strftime("%Y/%m/%d %T")
