@@ -6,8 +6,6 @@
       = message.show_time
     %br
     %p.chat-message__body
-      - if message.body.present?
-        = message.body
+      = message.body if message.body.present?
     .chat-message__img
-    - if message.image.url.present?
-      = image_tag message.image.url
+      = image_tag message.image.url if message.image.url.present?
