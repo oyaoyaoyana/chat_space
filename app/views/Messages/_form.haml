@@ -7,4 +7,4 @@
           %i.fa.fa-picture-o
         = f.file_field :image, id: "file-input",style: "display:none;"
     = f.file_field :image, class: "chat-footer__form__right",style: "display:none;"
-    = f.submit "Send", class: "chat-footer__button", id: "message-btn"
+    = f.submit "Send", class: "chat-footer__button", id: "message-btn", data: { disable_with: '更新中...' }
