@@ -1,5 +1,5 @@
 function buildMessage(message){
-  if (message.image == null){
+  var image = (message.image) ? `<img src = ${message.image}>` : "";
     var html = $(`
       <li class="chat-message" data-id="${message.id}">
         <div class="chat-message__header clearfix">
@@ -13,30 +13,10 @@ function buildMessage(message){
           <p class="chat-message__body">
              ${message.body}
           </p>
+          ${image}
         </div>
       </li>
       `);
-  } else{
-    var html = $(`
-    <li class="chat-message" data-id="${message.id}">
-      <div class="chat-message__header clearfix">
-        <p class="chat-message__name">
-          ${message.name}
-        </p>
-        <p class="chat-message__time">
-          ${message.time}
-        </p>
-        <br>
-        <p class="chat-message__body">
-           ${message.body}
-        </p>
-        <div class="chat-message__img">
-          <img src="${message.image}" alt="${message.image}">
-        </div>
-      </div>
-    </li>
-      `);
-  }
     return html
 };
 
@@ -73,7 +53,6 @@ $(function(){
     return false;
   });
 });
-
 
 $(function(){
   if (location.pathname.match('messages') == "messages"){
