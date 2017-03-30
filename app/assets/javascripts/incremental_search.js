@@ -34,7 +34,7 @@ function removeUserValue(name, id){
     return html
 };
 
-function awesomeUser(e, user_info){
+function adjustUser(e, user_info){
   e.preventDefault();
   var user_id = user_info.data('user-id');
   var user_name = user_info.data('user-name');
@@ -85,10 +85,10 @@ $(function(){
   });
   //ユーザーの削除機能
   $( document ).on( 'click', '.user_remove_list--link', function(e) {
-    awesomeUser(e,$(this))
+    adjustUser(e,$(this))
   });
   //ユーザーの追加機能
   $( document ).on( 'click', '.user_add_list--link', function(e) {
-    awesomeUser(e,$(this))
+    adjustUser(e,$(this))
   });
 });
